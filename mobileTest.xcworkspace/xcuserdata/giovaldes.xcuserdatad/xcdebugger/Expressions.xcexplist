@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in HomeViewController.makeDeleteContextualAction(forRowAt:):HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.homeView?.homeTableView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewControllerTest.testReloadData():HomeViewControllerTest.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sut.myAllPosts">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DetailPresenterImplementation.interactor(didGetUserInfo:post:):DetailPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedPost[0].author">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DetailPresenterImplementation.interactor(didFailUserInfo:post:):DetailPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedPost[0].author">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DataManager.save():DataManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "context.hasChanges">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.makeArchiveContextualAction(forRowAt:):HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.myAllPosts?[indexPath.row].isFavorire">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static HomeConfiguration.configureModule(viewController:):HomeConfig.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewController.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewControllerTest.testDeleteOnePost():HomeViewControllerTest.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sut.homeInteractor">
+            </PersistentString>
+            <PersistentString
+               value = "arrPost">
+            </PersistentString>
+            <PersistentString
+               value = "expectation">
+            </PersistentString>
+            <PersistentString
+               value = "sut.myAllPosts">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DataManager.saveCacheData(_:):DataManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "$0.id">
+            </PersistentString>
+            <PersistentString
+               value = "postOffline.id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DataManager.saveCacheData(_:):DataManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postArr">
+            </PersistentString>
+            <PersistentString
+               value = "$0.id">
+            </PersistentString>
+            <PersistentString
+               value = "postOffline.id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DataManager.deleteAllPost():DataManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "persistentContainer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomePresenterImplementation.interactor(deletePost:index:):HomePresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewControler">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewControllerTest.presenter(didDeleteOnePost:index:):HomeViewControllerTest.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "expectation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeRouterImplementation.gotoDetail(post:):HomeRouter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DetailInteractorTest.testExample():DetailInteractorTest.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sut?.services">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
