@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol DetailRouter:AnyObject {
-    var navigationController:UINavigationController?{get}
-    
+protocol DetailRouter: AnyObject {
+    var navigationController: UINavigationController? {get}
+
 }
 
-class DetailRouterImplementation:DetailRouter{
+class DetailRouterImplementation: DetailRouter {
     var navigationController: UINavigationController?
 }

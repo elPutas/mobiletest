@@ -7,43 +7,43 @@
 
 import Foundation
 
-protocol HomeInteractor:AnyObject{
+protocol HomeInteractor: AnyObject {
     func getAllPosts()
-    func filterOnlyFavs(allPost:[Post])
-    func setAsFav(post:[Post], index:IndexPath)
-    func deletePost(post:[Post], index:IndexPath)
-    //router
-    func gotoDetail(post:Post)
+    func filterOnlyFavs(allPost: [Post])
+    func setAsFav(post: [Post], index: IndexPath)
+    func deletePost(post: [Post], index: IndexPath)
+    // router
+    func gotoDetail(post: Post)
 }
 
 class HomeInteractorImplementation: HomeInteractor {
-    var presenter:HomePresenter?
-    var router:HomeRouter?
+    var presenter: HomePresenter?
+    var router: HomeRouter?
     var services = ServicesJson()
-    
-    //actions
-    func deletePost(post:[Post], index:IndexPath){
+
+    // actions
+    func deletePost(post: [Post], index: IndexPath) {
         self.presenter?.interactor(deletePost: post, index: index)
     }
-    func setAsFav(post:[Post], index:IndexPath){
+    func setAsFav(post: [Post], index: IndexPath) {
         self.presenter?.interactor(setPostAsFavAndArrange: post, index: index)
     }
-    func filterOnlyFavs(allPost:[Post]){
+    func filterOnlyFavs(allPost: [Post]) {
         self.presenter?.interactor(deleteAllDataWithoutFavs: allPost)
     }
-    
-    //services
+
+    // services
     func getAllPosts() {
         services.getPosts { [weak self] success, posts in
-            if success{
+            if success {
                 self?.presenter?.interactor(didGetAllPosts: posts)
-            }else{
+            } else {
                 self?.presenter?.interactor(didFailAllPosts: "error")
             }
         }
     }
-    //router
-    func gotoDetail(post:Post){
+    // router
+    func gotoDetail(post: Post) {
         router?.gotoDetail(post: post)
     }
 }

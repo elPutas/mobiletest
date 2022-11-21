@@ -7,34 +7,34 @@
 
 import Foundation
 
-protocol DetailInteractor:AnyObject{
-    func getAllCommetsByPost(idPost:Int32)
-    func getUserById(idUser:Int32, post:Post)
+protocol DetailInteractor: AnyObject {
+    func getAllCommetsByPost(idPost: Int32)
+    func getUserById(idUser: Int32, post: Post)
 }
 
 class DetailInteractorImplementation: DetailInteractor {
-    var presenter:DetailPresenter?
-    var router:DetailRouter?
+    var presenter: DetailPresenter?
+    var router: DetailRouter?
     var services = ServicesJson()
-    
-    func getAllCommetsByPost(idPost:Int32) {
+
+    func getAllCommetsByPost(idPost: Int32) {
         services.getCommetsByPost(idPost: idPost) { [weak self] success, comments in
-            if success{
+            if success {
                 self?.presenter?.interactor(didGetAllComments: comments)
-            }else{
+            } else {
                 self?.presenter?.interactor(didFailAllComments: "error")
             }
         }
     }
-    
-    func getUserById(idUser:Int32, post:Post){
+
+    func getUserById(idUser: Int32, post: Post) {
         services.getUserInfo(idUser: idUser) { [weak self] success, user in
-            if success{
+            if success {
                 self?.presenter?.interactor(didGetUserInfo: user, post: post)
-            }else{
+            } else {
                 self?.presenter?.interactor(didFailUserInfo: "error", post: post)
             }
         }
     }
-    
+
 }

@@ -10,17 +10,16 @@ import XCTest
 
 final class DetailViewControllerTest: XCTestCase {
 
-    var sut :DetailViewController!
+    var sut: DetailViewController!
     let mockPost1 = Post(userId: 0, id: 1, title: "title", body: "body")
-    
+
     override func setUpWithError() throws {
         sut = DetailViewController(post: mockPost1)
-        
-        
+
         sut.view = DetailView()
         sut.loadViewIfNeeded()
     }
-    
+
     override func tearDownWithError() throws {
         sut = nil
     }

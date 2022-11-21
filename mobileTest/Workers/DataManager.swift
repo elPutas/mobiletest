@@ -9,19 +9,19 @@ import Foundation
 import CoreData
 
 class DataManager {
-    
+
     static let shared = DataManager()
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "mobileTest")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
-    
-    //Core Data Saving support
+
+    // Core Data Saving support
     func save () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -33,8 +33,7 @@ class DataManager {
             }
         }
     }
-    
-    
+
     func postOffline(userId: Int32, id: Int32, title: String, body: String, isFavorite: Bool?) -> PostOffline {
         let post = PostOffline(context: persistentContainer.viewContext)
         post.userId = userId
@@ -44,8 +43,8 @@ class DataManager {
         post.isFavorite = isFavorite ?? false
         return post
     }
-    
-    func authorOffline(id: Int32, name: String, username: String, email: String, post:PostOffline?) -> AuthorUserOffline {
+
+    func authorOffline(id: Int32, name: String, username: String, email: String, post: PostOffline?) -> AuthorUserOffline {
         let author = AuthorUserOffline(context: persistentContainer.viewContext)
         author.id = id
         author.name = name
@@ -54,7 +53,7 @@ class DataManager {
         author.post = post
         return author
     }
-    
+
     func postsOffline() -> [PostOffline] {
         let request: NSFetchRequest<PostOffline> = PostOffline.fetchRequest()
         var fetchedPostOffline: [PostOffline] = []
@@ -65,7 +64,7 @@ class DataManager {
         }
         return fetchedPostOffline
     }
-    
+
     func authorsOffline() -> [AuthorUserOffline] {
         let request: NSFetchRequest<AuthorUserOffline> = AuthorUserOffline.fetchRequest()
         var fetchedAuthorUserOffline: [AuthorUserOffline] = []
@@ -76,8 +75,8 @@ class DataManager {
         }
         return fetchedAuthorUserOffline
     }
-    
-    func deleteAllPost(){
+
+    func deleteAllPost() {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: PostOffline.fetchRequest())
         do {
             try persistentContainer.persistentStoreCoordinator.execute(deleteRequest, with: persistentContainer.viewContext)
@@ -85,14 +84,13 @@ class DataManager {
             debugPrint("Error delete postOffline \(error)")
         }
     }
-    
-    func setAsFavPostsOffline(post: PostOffline, isFavorite:Bool) {
+
+    func setAsFavPostsOffline(post: PostOffline, isFavorite: Bool) {
         post.setValue(isFavorite, forKey: "isFavorite")
         save()
     }
-    
-    
-    func saveCacheData(_ allPosts:[Post]){
+
+    func saveCacheData(_ allPosts: [Post]) {
         var postArr = [PostOffline]()
         let postsSaved = DataManager.shared.postsOffline()
         for _post in allPosts {
