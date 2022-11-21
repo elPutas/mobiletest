@@ -25,20 +25,6 @@ class ServicesJson {
                     completion(false, [])
                 }
             }
-
-        //        self.loadJson(fromURLString: url) { (result) in
-        //            switch result {
-        //            case .success(let data):
-        //                if let posts = self.parse(jsonData: data)
-        //                {
-        //                    completion(true, posts)
-        //                }
-        //
-        //            case .failure(let error):
-        //                print(error)
-        //                completion(false, [])
-        //            }
-        //        }
     }
 
     func getCommetsByPost(idPost: Int32, completion: @escaping (Bool, [Comment])->Void) {
@@ -74,32 +60,5 @@ class ServicesJson {
                     completion(false, userError)
                 }
             }
-    }
-
-    private func loadJson(fromURLString urlString: String,
-                          completion: @escaping (Result<Data, Error>) -> Void) {
-        if let url = URL(string: urlString) {
-            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, _, error) in
-                if let error = error {
-                    completion(.failure(error))
-                }
-
-                if let data = data {
-                    completion(.success(data))
-                }
-            }
-
-            urlSession.resume()
-        }
-    }
-
-    private func parse(jsonData: Data) -> [Post]? {
-        do {
-            let decodedData = try JSONDecoder().decode([Post].self, from: jsonData)
-            return decodedData
-        } catch {
-            debugPrint("decode error")
-            return nil
-        }
     }
 }
