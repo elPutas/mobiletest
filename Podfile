@@ -6,14 +6,10 @@ target 'mobileTest' do
   use_frameworks!
 
   # Pods for mobileTest
-pod 'Alamofire'
+pod 'Alamofire', '5.6.3'
 
   target 'mobileTestTests' do
     inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'mobileTestUITests' do
     # Pods for testing
   end
 

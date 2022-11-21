@@ -493,7 +493,7 @@ public class Request {
     func retryOrFinish(error: AFError?) {
         dispatchPrecondition(condition: .onQueue(underlyingQueue))
 
-        guard let error = error, let delegate = delegate else { finish(); return }
+        guard !isCancelled, let error = error, let delegate = delegate else { finish(); return }
 
         delegate.retryResult(for: self, dueTo: error) { retryResult in
             switch retryResult {
@@ -1089,7 +1089,7 @@ public class DataRequest: Request {
 
     /// Protected storage for the `Data` read by the instance.
     @Protected
-    private var mutableData: Data?
+    private var mutableData: Data? = nil
 
     /// Creates a `DataRequest` using the provided parameters.
     ///
@@ -1909,4 +1909,4 @@ extension UploadRequest.Uploadable: UploadableConvertible {
 }
 
 /// A type that can be converted to an upload, whether from an `UploadRequest.Uploadable` or `URLRequestConvertible`.
-public protocol UploadConvertible: UploadableConvertible, URLRequestConvertible {}
+public protocol UploadConvertible: UploadableConvertible & URLRequestConvertible {}

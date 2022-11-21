@@ -63,7 +63,7 @@ public protocol DownloadResponseSerializerProtocol {
 }
 
 /// A serializer that can handle both data and download responses.
-public protocol ResponseSerializer: DataResponseSerializerProtocol, DownloadResponseSerializerProtocol {
+public protocol ResponseSerializer: DataResponseSerializerProtocol & DownloadResponseSerializerProtocol {
     /// `DataPreprocessor` used to prepare incoming `Data` for serialization.
     var dataPreprocessor: DataPreprocessor { get }
     /// `HTTPMethod`s for which empty response bodies are considered appropriate.
@@ -240,7 +240,7 @@ extension DataRequest {
 
                 self.eventMonitor?.request(self, didParseResponse: response)
 
-                guard let serializerError = result.failure, let delegate = self.delegate else {
+                guard !self.isCancelled, let serializerError = result.failure, let delegate = self.delegate else {
                     self.responseSerializerDidComplete { queue.async { completionHandler(response) } }
                     return
                 }
