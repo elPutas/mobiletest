@@ -25,3 +25,5 @@ open<br>
 mobileTest.xcworkspace<br>
 <br><br>
 compile :)
+<br><br>
+Swipe cell to right to see options (set as fav or delete)
