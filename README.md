@@ -14,7 +14,7 @@ coreData priority<br>
 save post comments in coredata<br>
 <br><br>
 pod's list:<br>
-//less code, big comunity, ease implementation, URLSession is now a bad option, bu regarding the time i preffer use AF this time<br>
+//less code, big comunity, ease implementation, URLSession is not now a bad option, but regarding the time i preffer use AF this time<br>
 Alamofire 5<br>
 <br><br>
 HOW TO RUN:<br>
